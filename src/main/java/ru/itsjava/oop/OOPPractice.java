@@ -13,5 +13,13 @@ public class OOPPractice {
 
         Bird crow = new Crow();
         System.out.println(crow.toString());
+
+        System.out.println();
+
+        Worker patty = new Barista();
+        System.out.println(patty.toString());
+
+        Worker rob = new Cleaner();
+        System.out.println(rob.toString());
     }
 }
