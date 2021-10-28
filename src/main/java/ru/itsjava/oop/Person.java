@@ -10,8 +10,8 @@ public class Person {
     int age;
 
     public void birthday() {
-        int ageAfter = age + 1;
-        System.out.println(ageAfter);
+        age = age + 1;
+        System.out.println(age);
     }
 
     public boolean takeBeer() {

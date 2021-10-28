@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class PersonTest {
 
     public static final String DEFAULT_NAME = "Vasya";
-    public static final int DEFAULT_AGE = 23;
+    public static final int DEFAULT_AGE = 15;
     public static final int ANOTHER_AGE = 14;
 
     @DisplayName("корректно создаваться конструктором")
@@ -25,23 +25,24 @@ public class PersonTest {
     public void shouldHaveCorrectUpdatePerson() {
         Person newPerson = new Person(DEFAULT_NAME, DEFAULT_AGE);
         newPerson.setAge(ANOTHER_AGE);
-
         Assertions.assertEquals(ANOTHER_AGE, newPerson.getAge());
     }
 
-//    @Test
-//    public void shouldHaveCorrectAddYear() {
-//        Person newPerson = new Person(DEFAULT_NAME, DEFAULT_AGE);
-//        newPerson.birthday();
-//        Assertions.assertEquals(24, );
-//    }
+    @DisplayName("корректно прибавлять один год к возрасту")
+    @Test
+    public void shouldHaveCorrectAddYear() {
+        Person newPerson = new Person(DEFAULT_NAME, DEFAULT_AGE);
+        newPerson.birthday();
+        Assertions.assertEquals(24, newPerson.getAge() );
+    }
 
     @DisplayName("корректно проверять совершеннолетие")
     @Test
     public void shouldHaveCorrectCheckAge() {
         Person newPerson = new Person(DEFAULT_NAME, DEFAULT_AGE);
         newPerson.takeBeer();
-        Assertions.assertTrue(DEFAULT_AGE >= 18);
+        Assertions.assertEquals(false, newPerson.takeBeer() );
+        Assertions.assertFalse(newPerson.takeBeer());
     }
 
 }
