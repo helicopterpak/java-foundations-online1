@@ -1,6 +1,6 @@
 package ru.itsjava.interfaces;
 
-public class Cat implements Runnable{
+public class Cat implements Runnable, Walkable {
     @Override
     public void run() {
         System.out.println("meeeeeow");
@@ -9,5 +9,10 @@ public class Cat implements Runnable{
     @Override
     public int maxRunDistance() {
         return 200;
+    }
+
+    @Override
+    public void walk() {
+        System.out.println("мяу");
     }
 }
