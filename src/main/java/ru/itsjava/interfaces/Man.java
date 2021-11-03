@@ -1,6 +1,6 @@
 package ru.itsjava.interfaces;
 
-public class Man implements Walkable, Runnable, Swimable {
+public class Man implements Walkable, Runnable, Swimable, Talkable {
     @Override
     public void walk() {
         System.out.println("хожу, брожу");
