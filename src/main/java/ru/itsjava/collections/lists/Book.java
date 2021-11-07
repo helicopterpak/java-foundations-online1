@@ -12,7 +12,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{ '" + name + "', '" + author + "', " + numOfPages + " }";
+        return "Book{ \"" + name + "\", \"" + author + "\", " + numOfPages + " }";
     }
 
 }
