@@ -13,11 +13,14 @@ public class Person implements Comparable<Person>, Cloneable {
 
     @Override
     public int compareTo(Person person) {
-        int result = this.firstName.compareTo(person.firstName);
-        if (result == 0) {
-            int result2 = this.lastName.compareTo(person.lastName);
-         if (result2 == 0);}
-            return (int) (age - person.age);
+        int comparisonByName = this.firstName.compareTo(person.firstName);
+
+        if (comparisonByName != 0) return comparisonByName;
+
+        int comparisonByLastName = this.lastName.compareTo(person.lastName);
+        if (comparisonByLastName != 0) return comparisonByLastName;
+
+        return (int) (age - person.age);
     }
 
 

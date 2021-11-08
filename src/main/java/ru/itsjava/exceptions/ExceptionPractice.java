@@ -37,13 +37,19 @@ public class ExceptionPractice {
 //            ce.printStackTrace();
 //        }
 
-        Person person = new Person("Fedor", 160);
-        try {
-            System.out.println(person.ageCheck());}
-        catch (AgeNotValidException e) {
-            e.printStackTrace();
-        }
+        Calculator calculator = new Calculator();
 
+//        try {
+//            System.out.println(calculator.division(5, 0));
+//        } catch (CalculatorException e) {
+//            e.printStackTrace();
+//        }
+
+        // System.out.println(calculator.division(5, 0));
+
+
+        Person person = new Person("Fedor", 160);
+        person.ageCheck();
 
     }
 }

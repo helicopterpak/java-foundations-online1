@@ -5,7 +5,6 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-
 public class Person {
     private final String name;
     private int age;

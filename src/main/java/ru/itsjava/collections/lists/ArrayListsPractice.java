@@ -1,16 +1,14 @@
 package ru.itsjava.collections.lists;
 
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Data
 public class ArrayListsPractice {
 
 
     public static void main(String[] args) {
+
         List<Book> booksList = new ArrayList<>();
         List<Book> booksList20 = new ArrayList<>(20);
 
@@ -128,15 +126,25 @@ public class ArrayListsPractice {
         }
 
 
-        for (Person person : persons) {
-            int femCount = 0;
-            for (int i = 0; i < persons.size(); i++) {
-                if (person.get(i).getMale() == false) {
-                    femCount++;
-                } else { System.out.println(femCount);}
-            }
+        int femCount = 0;
+        double sumAge = 0;
+//        for (Person person : persons) {
+//            // for (int i = 0; i < persons.size(); i++) {
+//            if (!person.getMale()) {
+//                femCount++;
+//                sumAge += person.getAge();
+//            }
+//            //}
+//        }
 
+
+        for (int i = 0; i < persons.size(); i++) {
+            if (!persons.get(i).getMale()) {
+                femCount++;
+                sumAge += persons.get(i).getAge();
+            }
         }
+        System.out.println("Средний возраст девушек: " + sumAge / femCount);
 
 //        for (Person person : persons) {
 //            int femCount = 0;
