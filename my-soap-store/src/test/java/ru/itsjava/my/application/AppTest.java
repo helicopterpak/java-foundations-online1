@@ -15,7 +15,7 @@ public class AppTest {
 
     @DisplayName("должен правильно проверять, есть ли позиция в списке")
     @Test
-    public void hasSoapTest () {
+    public void shouldHaveCorrectMethodHasSoap () {
         Soap soap1 = new Soap("Nivea", "Body");
         Soap soap2 = new Soap("Dove", "Hand");
         soapList.add(soap1);
@@ -27,7 +27,7 @@ public class AppTest {
 
     @DisplayName("должен корректно добавлять позицию в список")
     @Test
-    public void putSoapTest(){
+    public void shouldHaveCorrectMethodPutSoap(){
         Soap soap1 = new Soap("Nivea", "Body");
         Soap soap2 = new Soap("Dove", "Hand");
         soapList.add(soap1);
@@ -41,16 +41,18 @@ public class AppTest {
 
     @DisplayName("должен корректно находить позицию по названию и удалять позицию из списка")
     @Test
-    public void takeSoapByFirmTest(){
+    public void shouldHaveCorrectMethodTakeSoapByFirm(){
         Soap soap1 = new Soap("Nivea", "Body");
         Soap soap2 = new Soap("Dove", "Hand");
         soapList.add(soap1);
         soapList.add(soap2);
 
         SoapService soapService = new SoapServiceImpl(soapList);
-        soapService.takeSoapByFirm("Dove");
+        soapService.takeSoapByFirm("Hulu");//на несовпадение
+        //soapService.takeSoapByFirm("Dove");       //на совпадение
 
-        Assertions.assertEquals("Dove", "Dove");
+        Assertions.assertNotEquals("Dove", null);// тест на несовпадение
+       // Assertions.assertEquals("Dove", "Dove");// на совпадение
         System.out.println(soapList.toString());
     }
 }
