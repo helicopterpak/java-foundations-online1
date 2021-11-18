@@ -45,11 +45,9 @@ public class AppTest {
         soapList.add(soap2);
 
         SoapService soapService = new SoapServiceImpl(soapList);
-        //soapService.takeSoapByFirm("Hulu");//на несовпадение
-        soapService.takeSoapByFirm("Dove");       //на совпадение
 
-        //Assertions.assertNotEquals("Dove", null);// тест на несовпадение
-        Assertions.assertEquals(soap2, soapService.takeSoapByFirm("Dove"));// на совпадение
+        //Assertions.assertEquals(soap2, soapService.takeSoapByFirm("Dove"));// на совпадение
+        Assertions.assertNotEquals(soap1, soapService.takeSoapByFirm("Hulu"));// на несовпадение
         System.out.println(soapList.toString());
     }
 }
