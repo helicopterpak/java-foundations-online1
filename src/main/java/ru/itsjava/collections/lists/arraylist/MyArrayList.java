@@ -16,12 +16,16 @@ public class MyArrayList {
 
     public boolean isEmpty() {
         boolean rez = true;
-        for (int i = 0; i < realSize; i++) {
-            if (array[i] != null) {
-                rez = false;
-            }
+//        for (int i = 0; i < realSize; i++) {
+//            if (array[i] != null) {
+//                rez = false;
+//            }
+//        }
+        if (realSize != 0) {
+            rez = false;
         }
-        if (rez == true){
+
+        if (rez){
             System.out.println("список пуст");
         } else {
             System.out.println("в списке есть объекты");
@@ -58,6 +62,7 @@ public class MyArrayList {
         for (int i = 0; i < realSize; i++) {
             array[i] = null;
         }
+        realSize = 0;
 
     }
 
