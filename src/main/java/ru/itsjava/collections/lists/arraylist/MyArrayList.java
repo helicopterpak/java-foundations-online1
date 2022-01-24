@@ -63,7 +63,6 @@ public class MyArrayList {
             array[i] = null;
         }
         realSize = 0;
-
     }
 
     @Override
