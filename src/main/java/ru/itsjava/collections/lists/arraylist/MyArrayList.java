@@ -168,7 +168,7 @@ public class MyArrayList {
             if (array[i] != null && array[i].equals(o)) {
                 myIndex = i;
                 System.out.println(myIndex);
-                //break;
+                break;
             }
         }
         return myIndex;
