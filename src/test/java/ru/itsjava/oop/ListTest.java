@@ -24,6 +24,7 @@ public class ListTest {
     @Test
     public void shouldHaveCorrectAddElement() {
         Assertions.assertEquals(true, list.add(DEFAULT_ELEMENT));
+        Assertions.assertEquals(true, list.contains(DEFAULT_ELEMENT));
     }
 
     @DisplayName("корректно проверять, пустой ли массив")
@@ -53,6 +54,7 @@ public class ListTest {
     public void shouldHaveCorrectRemoveElement() {
         list.add(DEFAULT_ELEMENT);
         Assertions.assertEquals(true, list.remove(DEFAULT_ELEMENT));
+        Assertions.assertEquals(0, list.getSize());
     }
 
     @DisplayName("корректно удалять элемент из массива по индексу элемента")
@@ -60,7 +62,11 @@ public class ListTest {
     public void shouldHaveCorrectRemoveElementByIndex() {
         list.add(DEFAULT_ELEMENT);
         list.add(DEFAULT_ELEMENT2);
-        Assertions.assertEquals(DEFAULT_ELEMENT, list.remove(0));
+//        Assertions.assertEquals(DEFAULT_ELEMENT, list.remove(0));
+//        Assertions.assertEquals(DEFAULT_ELEMENT2, list.get(0));
+        Assertions.assertEquals(DEFAULT_ELEMENT2, list.remove(1));
+//        Assertions.assertEquals(null, list.get(1));
+        Assertions.assertEquals(1, list.size());
     }
 
     @DisplayName("корректно выводить элемент по индексу")
