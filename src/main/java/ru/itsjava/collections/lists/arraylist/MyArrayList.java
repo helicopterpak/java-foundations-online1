@@ -132,26 +132,34 @@ public class MyArrayList {
 
     public Object set(int index, Object element) {
         checkIndex(index);
-        for (int i = 0; i < array.length; i++) {
-            if (i == index) {
-                array[i] = element;
-            }
-        }
+//        for (int i = 0; i < array.length; i++) {
+//            if (i == index) {
+//                array[i] = element;
+//            }
+//        }
+        array[index] = element;
         return element;
     }
 
     public void add(int index, Object element) {
         checkIndex(index);
+        if (realSize == array.length) {
+            Object[] resArray = new Object[array.length * 3 / 2 + 1];
+            System.arraycopy(array, 0, resArray, 0, array.length);
+            array = resArray;
+        }
         realSize++;
         int insertIndex = index;
         for (int i = array.length - 2; i >= insertIndex; i--) {
             array[i + 1] = array[i];
         }
-        for (int i = 0; i < array.length; i++) {
-            if (i == index) {
-                array[i] = element;
-            }
-        }
+//        for (int i = 0; i < array.length; i++) {
+//            if (i == index) {
+//                array[i] = element;
+//            }
+//        }
+        array[index] = element;
+
     }
 
     public int indexOf(Object o) {
