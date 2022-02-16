@@ -5,6 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
+
 public class Node { //что такое узел
     private Object value;
     private Node next;

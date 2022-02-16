@@ -183,9 +183,4 @@ public class MyArrayList {
         }
         return myIndex;
     }
-
-    public int getSize() {
-        return realSize;
-    }
-
 }

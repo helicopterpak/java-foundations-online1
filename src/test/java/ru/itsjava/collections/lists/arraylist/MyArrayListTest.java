@@ -1,4 +1,4 @@
-package ru.itsjava.oop;
+package ru.itsjava.collections.lists.arraylist;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -7,7 +7,7 @@ import ru.itsjava.collections.lists.arraylist.MyArrayList;
 
 @DisplayName("MyArrayList должен: ")
 
-public class ListTest {
+public class MyArrayListTest {
     MyArrayList list = new MyArrayList();
 
     public static final Object DEFAULT_ELEMENT = "element1";
@@ -54,7 +54,7 @@ public class ListTest {
     public void shouldHaveCorrectRemoveElement() {
         list.add(DEFAULT_ELEMENT);
         Assertions.assertEquals(true, list.remove(DEFAULT_ELEMENT));
-        Assertions.assertEquals(0, list.getSize());
+        Assertions.assertEquals(0, list.size());
     }
 
     @DisplayName("корректно удалять элемент из массива по индексу элемента")
@@ -82,7 +82,7 @@ public class ListTest {
     public void shouldHaveCorrectChangeElement() {
         list.add(DEFAULT_ELEMENT);
         list.add(DEFAULT_ELEMENT2);
-        Assertions.assertEquals(DEFAULT_ELEMENT, list.set(1,DEFAULT_ELEMENT));
+        Assertions.assertEquals(DEFAULT_ELEMENT, list.set(1, DEFAULT_ELEMENT));
     }
 
     //не уверена в правильности
@@ -90,8 +90,8 @@ public class ListTest {
     @Test
     public void shouldHaveCorrectAddElementByIndex() {
         list.add(DEFAULT_ELEMENT);
-        list.add(0,DEFAULT_ELEMENT2);
-        Assertions.assertEquals(DEFAULT_ELEMENT2, list.get(0));
+        list.add(0, DEFAULT_ELEMENT2);
+        Assertions.assertEquals(DEFAULT_ELEMENT2, list.get(1));
     }
 
     @DisplayName("корректно выводить индекс элемента")
