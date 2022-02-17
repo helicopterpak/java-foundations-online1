@@ -101,43 +101,33 @@ public class MyLinkedList {
     }
 
     public void add(int index, Object element) {
-        checkIndex(index);
-        int count = 0;
-        Node curNode = head;
-        Node nextNode = head;
-        while ((curNode.getNext() != null) && (nextNode.getNext() != null)){
-            //curNode = curNode.getNext();
-            nextNode = nextNode.getNext();
-            if (count == index) {
-                nextNode.setNext(curNode.getNext());
-                curNode.setValue(element);
-                break;
+        checkIndex(index); //проверяем корректность индекса
+        int count = 0;//
+        Node curNode = head;// присваиваем переменной значение нулевого узла
+        Node nextNode = head.getNext();// присваиваем переменной узел, следующий за нулевым
+        Object memoryValue = head.getValue();//создаём переменную для хранения значения заменяемого узла
+        for (int i = 0; i <= index; i++) {//пробегаемся по листу
+            if (i == index) {// если нашли искомый узел по индексу
+                memoryValue = curNode.getValue();//запоминаем его старое значение
+                curNode.setValue(element);//заменяем его на новое
+                break;//
             }
-//            count++;
-//            nextNode = nextNode.getNext();
-//            curNode = curNode.getNext();
-//        }
-//        if (curNode.getNext() == null) { //проверка, если текущий элемент последний
-//            nextNode.setNext(nextNode);
-//            nextNode.setValue(nextNode.getValue());//зануляем элемент после предыдущего элемента
-//        }
-//        while ((curNode = curNode.getNext()) != null) {
-//            count++;
+            curNode = curNode.getNext();//присваиваем переменной следующий узел
+            nextNode = nextNode.getNext();//присваиваем переменной следующий узел
+        }
+        curNode.setValue(memoryValue);//присваиваем текущему узлу значение, которое запомнили - ПОЧЕМУ-ТО ПЕРЕСТАЛО РАБОТАТЬ ПРИСВОЕНИЕ ПОСЛЕ КАКОЙ-ТО КОРРЕКТИРОВКИ(((
 //
-//            nextNode = nextNode.getNext();
-//            if (count == index) {
-//                curNode.setValue(element);
-//                break;
-//            }
-//        }
-//        if (nextNode.getNext() != null) {
+//        curNode = curNode.getNext();//присваиваем переменной следующий узел
+//        nextNode = nextNode.getNext();//присваиваем переменной следующий узел
 //
-       }
-
+        if (nextNode.getNext() != null) {// пытаюсь присвоить следующему узлу текущий, ничего не вышло в разных комбинациях
+            nextNode=curNode;//
+        }
     }
+
     // O0-> 11-> 22-> "33->" 44-> 55
-    // i=0 cur=1 i=1 [1]=22 NEXT=1
-    //i=1 cur=2 i=2 [2] = 33 next=2
+    // i=0 cur=1 i=1 [1]=22 NEXT=2
+    //i=1 cur=2 i=2 [2] = 33 next=3
     //i=2 cur=3 i=3 [3]=44 next=3 cur=24
 
     private void checkIndex(int index) {
