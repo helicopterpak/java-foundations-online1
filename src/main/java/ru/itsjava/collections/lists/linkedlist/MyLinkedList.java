@@ -102,28 +102,26 @@ public class MyLinkedList {
 
     public void add(int index, Object element) {
         checkIndex(index); //проверяем корректность индекса
-        int count = 0;//
+        Node resNode = new Node(element, null);
         Node curNode = head;// присваиваем переменной значение нулевого узла
         Node nextNode = head.getNext();// присваиваем переменной узел, следующий за нулевым
-        Object memoryValue = head.getValue();//создаём переменную для хранения значения заменяемого узла
         for (int i = 0; i <= index; i++) {//пробегаемся по листу
-            if (i == index) {// если нашли искомый узел по индексу
-                memoryValue = curNode.getValue();//запоминаем его старое значение
-                curNode.setValue(element);//заменяем его на новое
-                break;//
+            if (i == 0) {
+                head = resNode;
+                resNode.setNext(curNode);
+                break;
+            } else {
+                if (i == index) {// если нашли искомый узел по индексу
+                    curNode.setNext(resNode);
+                    resNode.setNext(nextNode);
+                    break;
+                }
             }
             curNode = curNode.getNext();//присваиваем переменной следующий узел
             nextNode = nextNode.getNext();//присваиваем переменной следующий узел
         }
-        curNode.setValue(memoryValue);//присваиваем текущему узлу значение, которое запомнили - ПОЧЕМУ-ТО ПЕРЕСТАЛО РАБОТАТЬ ПРИСВОЕНИЕ ПОСЛЕ КАКОЙ-ТО КОРРЕКТИРОВКИ(((
-//
-//        curNode = curNode.getNext();//присваиваем переменной следующий узел
-//        nextNode = nextNode.getNext();//присваиваем переменной следующий узел
-//
-        if (nextNode.getNext() != null) {// пытаюсь присвоить следующему узлу текущий, ничего не вышло в разных комбинациях
-            nextNode=curNode;//
-        }
     }
+    //}
 
     // O0-> 11-> 22-> "33->" 44-> 55
     // i=0 cur=1 i=1 [1]=22 NEXT=2
@@ -179,11 +177,57 @@ public class MyLinkedList {
     }
 
     public int indexOf(Object o) {
-        return 0;
+        int count = 0;
+        int index = 0;
+        checkObject(o);
+        Node curNode = head;
+        while (curNode.getNext() != null) {
+            if (curNode.getValue().equals(o)) {
+                index = count;
+                break;
+            }
+            curNode = curNode.getNext();
+            count++;
+        }
+        if (curNode.getNext() == null) {
+            if (curNode.getValue().equals(o)) {
+                index = (size() - 1);
+            }
+        }
+        return index;
+    }
+
+    private void checkObject(Object o) {
+        if (!isCorrectObject(o)) {
+            throw new ArrayIndexOutOfBoundsException("В листе нет данного элемента");
+        }
+    }
+
+    private boolean isCorrectObject(Object o) {
+        if (contains(o)) {
+            return true;
+        }
+        return false;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        int count = 0;
+        int index = 0;
+        checkObject(o);
+        Node curNode = head;
+        while (curNode.getNext() != null) {
+            if (curNode.getValue().equals(o)) {
+                index = count;
+            }
+            curNode = curNode.getNext();
+            count++;
+        }
+        if (curNode.getNext() == null) {
+            if (curNode.getValue().equals(o)) {
+                index = (size() - 1);
+            }
+        }
+        return index;
     }
 
     @Override
