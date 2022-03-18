@@ -56,7 +56,25 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        if (head == null) return false;
+        if (head.getValue().equals(o)) {
+            head = head.getNext();
+            return true;
+        }
+        if (head.getNext() == null) return false;
+        Node curNode = head;
+        Node prevNode = head;
+        while ((curNode = curNode.getNext()) != null) {
+        if (curNode.getValue().equals(o)) {
+            break;
+        }
+        prevNode = prevNode.getNext();
+        }
+        if (curNode == null) return false;
+        prevNode.setNext(curNode.getNext());
+        curNode.setNext(null);
+
+        return true;
     }
 
     public void clear() {
@@ -164,6 +182,8 @@ public class MyLinkedList {
             }
             prevNode = prevNode.getNext(); //присваиваем предыдущему значению стоящий после него элемент
         }
+        if (curNode == null) return false;
+
 
         Object resValue = curNode.getValue(); //присваиваем переменной значение текущего элемента
 

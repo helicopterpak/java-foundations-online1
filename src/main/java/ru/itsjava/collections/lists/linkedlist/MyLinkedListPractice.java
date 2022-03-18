@@ -27,6 +27,8 @@ public class MyLinkedListPractice {
         System.out.println("list.lastIndexOf(\"line 1\") = " + list.lastIndexOf("line 1"));
         System.out.println("list.lastIndexOf(\"line 5\") = " + list.lastIndexOf("line 5"));
         System.out.println("list.lastIndexOf(\"line 3\") = " + list.lastIndexOf("line 3"));
+        list.remove("line 1");
+        System.out.println("list = " + list);
 
         //System.out.println(5==6);
     }
