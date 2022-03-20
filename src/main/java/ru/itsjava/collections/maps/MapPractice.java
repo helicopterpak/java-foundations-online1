@@ -17,11 +17,11 @@ public class MapPractice {
         Man petrov2 = new Man("Petrov2");
         Man pak2 = new Man("Pak2");
 
-        Fruits apple = new Fruits("apple");
-        Fruits orange = new Fruits("orange");
-        Fruits melon = new Fruits("melon");
-        Fruits melon2 = new Fruits("Melon");
-        Fruits melon3 = new Fruits("MElOn");
+        Fruits apple = new Fruits("apple", 1);
+        Fruits orange = new Fruits("orange", 2);
+        Fruits melon = new Fruits("melon", 3);
+        Fruits melon2 = new Fruits("Melon",4);
+        Fruits melon3 = new Fruits("MElOn",5);
 
         men.put(ivanov, apple);
         men.put(sidorov, orange);
@@ -44,13 +44,7 @@ public class MapPractice {
             System.out.println(keyMan + ": " + men.get(keyMan));
         }
 
-//        men.remove(ivanov);
-//        System.out.println("after delete Ivanov:");
-//        for (Man keyMan: men.keySet()) {
-//            System.out.println(keyMan + ": " + men.get(keyMan));
-//        }
-
-        // task 1
+        System.out.println("task 1:");
         Map<Man, Fruits> buyer = new HashMap<>();
         buyer.putAll(men);
         System.out.println("Map BUYER:");
@@ -58,30 +52,27 @@ public class MapPractice {
             System.out.println(keyBuyer + ": " + buyer.get(keyBuyer));
         }
 
-        // task 2
+        System.out.println("task 2:");
         System.out.println("men.get(petrov) = " + men.get(petrov));
 
-        // task 3
-        //for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
-            if (men.getValue().equals(apple)) {
-                men.remove(men.getKey(), men.getValue()); //НЕ РАБОТАЕТ((
-            }
-       // }
-        for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
-            System.out.println(pair.getKey() + ": " + pair.getValue());
-        }
+        // System.out.println("task 3:");
+        //men.remove(ivanov);
+//        System.out.println("after delete Ivanov:");
+//        for (Man keyMan: men.keySet()) {
+//            System.out.println(keyMan + ": " + men.get(keyMan));
+//        }
 
-        // task 4
-        Fruits kiwi = new Fruits("kiwi");
+        System.out.println("task 4:");
+        Fruits kiwi = new Fruits("kiwi", 7);
         System.out.println("men.containsValue(kiwi) = " + men.containsValue(kiwi));
 
 
-        // task 5
+        System.out.println("task 5:");
         System.out.println("men.keySet() = " + men.keySet());
         System.out.println("men.values() = " + men.values());
         System.out.println("men.entrySet() = " + men.entrySet());
 
-        // task 6
+        System.out.println("task 6:");
         int keyCount = 0;
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
             if (pair.getKey().length() > 5) {
@@ -98,7 +89,7 @@ public class MapPractice {
         }
         System.out.println("количество элементов, которые равны 'melon': " + valueCount);
 
-        // task 7
+        System.out.println("task 7:");
         int melonCount = 0;
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
             if (pair.getValue().equals(melon)) {
@@ -113,7 +104,7 @@ public class MapPractice {
 
         int aCount = 0;
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
-            if (pair.getKey().startsWith("p")) {
+            if (pair.getKey().getName().startsWith("P")) {
                 aCount++;
                 if (aCount > 2) {
                     System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ РАБОТАЕТ НЕКОРРЕКТНО???
@@ -121,6 +112,33 @@ public class MapPractice {
             }
         }
 
+        System.out.println("task 8:");
+        for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
+            if ((pair.getValue().equals(melon2)) || (pair.getValue().equals(melon3))) {
+                System.out.println(pair.getKey() + ": " + pair.getValue());
+            }
+        }
 
+        System.out.println("task 9:");
+        Map<Man, Fruits> buyer2 = new HashMap<>();
+        for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
+            if ((pair.getValue().equals(melon)) || (pair.getValue().equals(apple))) {
+                buyer2.put(pair.getKey(), pair.getValue());
+            }
+        }
+        System.out.println("Map BUYER2:");
+        for (Man keyBuyer2 : buyer2.keySet()) {
+            System.out.println(keyBuyer2 + ": " + buyer2.get(keyBuyer2));
+        }
+
+        System.out.println("task 10:");
+        int middleWeight = 0;
+        int weightCount = 0;
+        for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
+            middleWeight = middleWeight + pair.getValue().getWeight();
+            weightCount++;
+        }
+        middleWeight = middleWeight/weightCount;
+        System.out.println(middleWeight);
     }
 }
