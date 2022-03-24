@@ -20,8 +20,8 @@ public class MapPractice {
         Fruits apple = new Fruits("apple", 1);
         Fruits orange = new Fruits("orange", 2);
         Fruits melon = new Fruits("melon", 3);
-        Fruits melon2 = new Fruits("Melon",4);
-        Fruits melon3 = new Fruits("MElOn",5);
+        Fruits melon2 = new Fruits("Melon", 4);
+        Fruits melon3 = new Fruits("MElOn", 5);
 
         men.put(ivanov, apple);
         men.put(sidorov, orange);
@@ -31,8 +31,6 @@ public class MapPractice {
         men.put(borisov, melon);
         men.put(petrov2, melon2);
         men.put(pak2, melon3);
-
-
 
 
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
@@ -94,10 +92,11 @@ public class MapPractice {
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
             if (pair.getValue().equals(melon)) {
                 melonCount++;
-                if (melonCount > 2) {
-                    System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ ВЫВОДИТ 1Й И 4Й ЭЛЕМЕНТЫ???
-                }
             }
+            if (melonCount > 2) {
+                System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ ВЫВОДИТ 1Й И 4Й ЭЛЕМЕНТЫ???
+            }
+
         }
 
         System.out.println("-------------------");
@@ -106,10 +105,11 @@ public class MapPractice {
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
             if (pair.getKey().getName().startsWith("P")) {
                 aCount++;
-                if (aCount > 2) {
-                    System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ РАБОТАЕТ НЕКОРРЕКТНО???
-                }
             }
+            if (aCount > 2) {
+                System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ РАБОТАЕТ НЕКОРРЕКТНО???
+            }
+
         }
 
         System.out.println("task 8:");
@@ -138,7 +138,7 @@ public class MapPractice {
             middleWeight = middleWeight + pair.getValue().getWeight();
             weightCount++;
         }
-        middleWeight = middleWeight/weightCount;
+        middleWeight = middleWeight / weightCount;
         System.out.println(middleWeight);
     }
 }
