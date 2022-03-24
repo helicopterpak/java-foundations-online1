@@ -114,7 +114,7 @@ public class MapPractice {
 
         System.out.println("task 8:");
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
-            if ((pair.getValue().equals(melon2)) || (pair.getValue().equals(melon3))) {
+            if ((pair.getValue().getName().equals("melon")) || (pair.getValue().getName().equals("MElOn")) || (pair.getValue().getName().equals("Melon"))) {
                 System.out.println(pair.getKey() + ": " + pair.getValue());
             }
         }
