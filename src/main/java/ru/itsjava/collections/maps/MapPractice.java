@@ -3,6 +3,7 @@ package ru.itsjava.collections.maps;
 import ru.itsjava.collections.sets.Fruit;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class MapPractice {
@@ -141,4 +142,6 @@ public class MapPractice {
         middleWeight = middleWeight / weightCount;
         System.out.println(middleWeight);
     }
+
+
 }
