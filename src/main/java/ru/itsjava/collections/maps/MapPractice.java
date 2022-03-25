@@ -1,9 +1,7 @@
 package ru.itsjava.collections.maps;
 
-import ru.itsjava.collections.sets.Fruit;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 public class MapPractice {
@@ -94,8 +92,8 @@ public class MapPractice {
             if (pair.getValue().equals(melon)) {
                 melonCount++;
             }
-            if (melonCount > 2) {
-                System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ ВЫВОДИТ 1Й И 4Й ЭЛЕМЕНТЫ???
+            if ((melonCount > 2) & (pair.getValue().equals(melon))) {
+                System.out.println(pair.getKey() + ": " + pair.getValue());
             }
 
         }
@@ -107,15 +105,15 @@ public class MapPractice {
             if (pair.getKey().getName().startsWith("P")) {
                 aCount++;
             }
-            if (aCount > 2) {
-                System.out.println(pair.getKey() + ": " + pair.getValue()); //ПОЧЕМУ РАБОТАЕТ НЕКОРРЕКТНО???
+            if ((aCount > 2) & (pair.getKey().getName().startsWith("P"))) {
+                System.out.println(pair.getKey() + ": " + pair.getValue());
             }
 
         }
 
         System.out.println("task 8:");
         for (Map.Entry<Man, Fruits> pair : men.entrySet()) {
-            if ((pair.getValue().getName().equals("melon")) || (pair.getValue().getName().equals("MElOn")) || (pair.getValue().getName().equals("Melon"))) {
+            if (pair.getValue().getName().equalsIgnoreCase("melon")) {
                 System.out.println(pair.getKey() + ": " + pair.getValue());
             }
         }

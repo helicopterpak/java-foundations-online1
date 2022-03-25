@@ -68,7 +68,10 @@ public class IOStreamsPractice {
         }
 
         try (PrintWriter printWriter = new PrintWriter(file2)) {
-            printWriter.println(list);
+            for (Object line:
+                 list) {
+                printWriter.println(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
