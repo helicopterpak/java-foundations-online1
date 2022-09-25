@@ -1,4 +1,4 @@
-package ru.itsjava.threads.Thread;
+package ru.itsjava.threads;
 
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
