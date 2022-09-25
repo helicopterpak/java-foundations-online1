@@ -2,6 +2,7 @@ package ru.itsjava.collections.maps;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class MapPractice {
