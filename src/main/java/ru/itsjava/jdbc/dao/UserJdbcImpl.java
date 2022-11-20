@@ -5,7 +5,7 @@ import java.sql.*;
 public class UserJdbcImpl implements UsersDao {
     public static final String DB_URL = "jdbc:mysql://localhost:3306/schema_online_course.users?serverTimezone=UTC";
     public static final String DB_LOGIN = "root";
-    public static final String DB_PASSWORD = "televisionJ7";
+    public static final String DB_PASSWORD = "";
 
     @Override
     public int getAgeByUserName(String firstname) {
